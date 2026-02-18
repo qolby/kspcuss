@@ -1,0 +1,39 @@
+---
+const title = 'Koperasi Credit Union untuk Kesejahteraan Bersama';
+const subtitle =
+  'KSP CU Sinar Sejahtera adalah koperasi simpan pinjam berbasis Credit Union yang dikelola oleh dan untuk anggota secara bertanggung jawab.';
+---
+
+<section class="bg-white py-20 md:py-28">
+  <div class="container-content">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Text -->
+      <div class="flex flex-col justify-center">
+        <h1
+          class="text-5xl md:text-6xl font-semibold tracking-tight text-neutral-900 leading-[1.1]"
+        >
+          {title}
+        </h1>
+        <p class="mt-6 text-xl md:text-2xl text-neutral-600 max-w-[38ch]">
+          {subtitle}
+        </p>
+        <a
+          href="/tentang-kami"
+          class="mt-10 inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-4 rounded-3xl font-medium text-lg transition-all active:scale-95"
+        >
+          Kenali Cara Kerja Kami
+        </a>
+      </div>
+
+      <!-- Image -->
+      <div class="relative">
+        <img
+          src="/images/hero-illustration.webp"
+          alt="Ilustrasi anggota koperasi yang berkolaborasi untuk kesejahteraan bersama"
+          class="w-full rounded-3xl shadow-sm"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</section>
