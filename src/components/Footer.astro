@@ -1,0 +1,69 @@
+---
+import Logo from './Logo.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-neutral-100 border-t border-neutral-200 mt-auto">
+  <div class="container-content py-12 md:py-16">
+    {/* Three-column grid */}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+      {/* Left — Logo + description */}
+      <div class="flex flex-col gap-4">
+        <Logo />
+        <p class="text-sm text-neutral-500 leading-relaxed max-w-xs">
+          Koperasi Simpan Pinjam berbasis Credit Union yang melayani anggota
+          dengan pendekatan pendidikan, kebersamaan, dan manfaat jangka panjang.
+        </p>
+      </div>
+
+      {/* Middle — Navigation */}
+      <div>
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-4"
+        >
+          Navigasi
+        </p>
+        <nav class="flex flex-col gap-2" aria-label="Navigasi footer">
+          <a href="/" class="footer-link">Beranda</a>
+          <a href="/tentang-kami" class="footer-link">Tentang Kami</a>
+          <a href="/layanan" class="footer-link">Layanan</a>
+          <a href="/keanggotaan" class="footer-link">Keanggotaan</a>
+          <a href="/berita" class="footer-link">Berita & Pengumuman</a>
+          <a href="/kontak" class="footer-link">Kontak</a>
+        </nav>
+      </div>
+
+      {/* Right — Contact info */}
+      <div>
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-4"
+        >
+          Hubungi Kami
+        </p>
+        <address
+          class="not-italic flex flex-col gap-2 text-sm text-neutral-500"
+        >
+          <span>Jl. Contoh No. 123, Kota Anda</span>
+          <a href="tel:+6281234567890" class="footer-link">(0xxx) xxx-xxxx</a>
+          <a href="mailto:info@cusinarsejatera.coop" class="footer-link"
+            >info@cusinarsejahtera.coop</a
+          >
+          <span class="mt-2 text-neutral-400 text-xs leading-relaxed">
+            Senin–Jumat: 08.00–16.00<br />
+            Sabtu: 08.00–12.00<br />
+            Minggu & Libur: Tutup
+          </span>
+        </address>
+      </div>
+    </div>
+
+    {/* Bottom bar */}
+    <div
+      class="mt-10 pt-6 border-t border-neutral-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-neutral-400"
+    >
+      <span>© {currentYear} KSP CU Sinar Sejahtera. Semua hak dilindungi.</span>
+      <span>Terdaftar & diawasi oleh Kementerian Koperasi RI</span>
+    </div>
+  </div>
+</footer>

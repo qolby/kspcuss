@@ -35,6 +35,11 @@
 
 /* ─── Base styles ────────────────────────────────────── */
 @layer base {
+  :root {
+    --color-neutral-50: #f9fafb;
+    --color-primary: oklch(32% 0.07 210);
+  }
+
   html {
     font-family: var(--font-sans);
     background-color: var(--color-neutral-50);
@@ -58,6 +63,7 @@
   }
 }
 
+/* --- Container ---------------------------------------- */
 @layer utilities {
   .container-content {
     max-width: var(--container-max);
@@ -69,5 +75,55 @@
     .container-content {
       padding-inline: 2rem; /* 32px */
     }
+  }
+}
+
+/* --- Nav Link ------------------------------------------ */
+@layer utilities {
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-neutral-600);
+    text-decoration: none;
+    transition: color 150ms ease;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition:
+      color 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-neutral-900);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .nav-link[aria-current='page'] {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+}
+
+@layer utilities {
+  .footer-link {
+    font-size: 0.875rem;
+    color: var(--color-neutral-500);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .footer-link:hover {
+    color: var(--color-primary);
+  }
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

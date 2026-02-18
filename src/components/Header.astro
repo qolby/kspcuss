@@ -1,0 +1,66 @@
+---
+import Logo from './Logo.astro';
+import MobileMenu from './MobileMenu.tsx';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="sticky top-0 z-40 w-full bg-neutral-50/95 backdrop-blur-sm border-b border-neutral-100"
+>
+  <div class="container-content">
+    <div class="flex items-center justify-between h-18">
+      {/* Logo — always visible */}
+      <Logo />
+
+      {/* Desktop navigation — hidden below lg */}
+      <nav
+        class="hidden lg:flex items-center gap-8"
+        aria-label="Navigasi utama"
+      >
+        <a
+          href="/"
+          class="nav-link"
+          aria-current={currentPath === '/' ? 'page' : undefined}>Beranda</a
+        >
+        <a
+          href="/tentang-kami"
+          class="nav-link"
+          aria-current={currentPath.startsWith('/tentang-kami')
+            ? 'page'
+            : undefined}>Tentang Kami</a
+        >
+        <a
+          href="/layanan"
+          class="nav-link"
+          aria-current={currentPath.startsWith('/layanan') ? 'page' : undefined}
+          >Layanan</a
+        >
+        <a
+          href="/keanggotaan"
+          class="nav-link"
+          aria-current={currentPath.startsWith('/keanggotaan')
+            ? 'page'
+            : undefined}>Keanggotaan</a
+        >
+        <a
+          href="/berita"
+          class="nav-link"
+          aria-current={currentPath.startsWith('/berita') ? 'page' : undefined}
+          >Berita</a
+        >
+        <a
+          href="/kontak"
+          class="nav-link"
+          aria-current={currentPath.startsWith('/kontak') ? 'page' : undefined}
+          >Kontak</a
+        >
+      </nav>
+
+      {/* Mobile menu (React island) — hidden at lg and above */}
+      <div class="lg:hidden">
+        <MobileMenu client:load />
+      </div>
+    </div>
+  </div>
+</header>
