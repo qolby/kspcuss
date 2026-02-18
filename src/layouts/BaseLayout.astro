@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'KSP CU Sinar Sejahtera — Koperasi Simpan Pinjam berbasis Credit Union untuk anggota yang ingin mengelola keuangan dengan bijak.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} — KSP CU Sinar Sejahtera</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body class="bg-neutral-50 text-neutral-800 font-sans antialiased">
+    <!-- Header will go here  -->
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer will go here  -->
+  </body>
+</html>
