@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 /* Use the variable Inter package via fontsource */
 @import '@fontsource-variable/inter';

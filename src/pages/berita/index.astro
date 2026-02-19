@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sanityClient } from '../../lib/sanity';
+import { ALL_POSTS_QUERY } from '../../lib/queries';
+import type { SanityPost } from '../../types/sanity';
+import { urlFor } from '../../lib/image';
+
+const posts: SanityPost[] = await sanityClient.fetch(ALL_POSTS_QUERY);
+
+const featured = posts[0] ?? null;
+const rest = posts.slice(1);
+
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout title="Berita & Pengumuman">
+  <section class="py-16 md:py-24">
+    <div class="max-w-[1152px] mx-auto px-5 md:px-8">
+
+      <!-- Page header -->
+      <div class="mb-12">
+        <h1 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-3">
+          Berita & Pengumuman
+        </h1>
+        <p class="text-neutral-500">
+          Informasi terbaru, pengumuman resmi, dan update kegiatan koperasi.
+        </p>
+      </div>
+
+      {posts.length === 0 ? (
+        <p class="text-neutral-400 text-center py-24">
+          Belum ada berita atau pengumuman.
+        </p>
+      ) : (
+        <div class="space-y-8">
+
+          <!-- Featured post (most recent) -->
+          {featured && (
+            
+              <a href={`/berita/${featured.slug.current}`}
+              class="group grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-neutral-200 hover:border-primary transition-colors duration-200"
+            >
+              <!-- Image -->
+              <div class="relative overflow-hidden bg-neutral-100 aspect-video md:aspect-auto">
+                {featured.image ? (
+                  <img
+                    src={urlFor(featured.image).width(800).height(500).auto('format').url()}
+                    alt={featured.image.alt ?? featured.title}
+                    class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                ) : (
+                  <div class="w-full h-full min-h-55 bg-neutral-100 flex items-center justify-center">
+                    <span class="text-neutral-300 text-sm">Tidak ada gambar</span>
+                  </div>
+                )}
+              </div>
+
+              <!-- Content -->
+              <div class="flex flex-col justify-center p-8 md:p-10 bg-white">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class={`text-xs font-medium px-2.5 py-1 rounded-full ${
+                    featured.category === 'pengumuman'
+                      ? 'bg-amber-50 text-amber-700'
+                      : 'bg-primary/10 text-primary'
+                  }`}>
+                    {featured.category === 'pengumuman' ? 'Pengumuman' : 'Berita'}
+                  </span>
+                  <span class="text-xs text-neutral-400">
+                    {formatDate(featured.publishedAt)}
+                  </span>
+                </div>
+
+                <h2 class="text-xl md:text-2xl font-semibold text-neutral-900 leading-snug mb-3 group-hover:text-primary transition-colors duration-200">
+                  {featured.title}
+                </h2>
+
+                {featured.excerpt && (
+                  <p class="text-sm text-neutral-500 leading-relaxed line-clamp-3">
+                    {featured.excerpt}
+                  </p>
+                )}
+
+                <span class="mt-6 text-sm font-medium text-primary">
+                  Baca selengkapnya →
+                </span>
+              </div>
+            </a>
+          )}
+
+          <!-- Remaining posts grid -->
+          {rest.length > 0 && (
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {rest.map((post) => (
+                
+                  <a href={`/berita/${post.slug.current}`}
+                  class="group flex flex-col rounded-xl overflow-hidden border border-neutral-200 hover:border-primary transition-colors duration-200"
+                >
+                  <!-- Card image -->
+                  <div class="relative overflow-hidden bg-neutral-100 aspect-video">
+                    {post.image ? (
+                      <img
+                        src={urlFor(post.image).width(600).height(340).auto('format').url()}
+                        alt={post.image.alt ?? post.title}
+                        class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                      />
+                    ) : (
+                      <div class="w-full h-full bg-neutral-100 flex items-center justify-center">
+                        <span class="text-neutral-300 text-xs">Tidak ada gambar</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <!-- Card content -->
+                  <div class="flex flex-col flex-1 p-5">
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class={`text-xs font-medium px-2.5 py-1 rounded-full ${
+                        post.category === 'pengumuman'
+                          ? 'bg-amber-50 text-amber-700'
+                          : 'bg-primary/10 text-primary'
+                      }`}>
+                        {post.category === 'pengumuman' ? 'Pengumuman' : 'Berita'}
+                      </span>
+                      <span class="text-xs text-neutral-400">
+                        {formatDate(post.publishedAt)}
+                      </span>
+                    </div>
+
+                    <h2 class="text-base font-semibold text-neutral-800 leading-snug mb-2 group-hover:text-primary transition-colors duration-200">
+                      {post.title}
+                    </h2>
+
+                    {post.excerpt && (
+                      <p class="text-sm text-neutral-500 leading-relaxed line-clamp-2 mt-auto pt-3">
+                        {post.excerpt}
+                      </p>
+                    )}
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+
+        </div>
+      )}
+
+    </div>
+  </section>
+</BaseLayout>
