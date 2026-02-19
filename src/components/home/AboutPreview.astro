@@ -1,34 +1,112 @@
+---
+// AboutPreview.astro
+// Beranda - Tentang Koperasi (ringkas)
+// Uses real founding data: 17 Mei 2014, 23 pendiri, Juata Permai, PUSKOPDIT 2018
+---
+
 <section class="bg-neutral-50 py-16 md:py-24">
   <div class="container-content">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-4xl font-semibold tracking-tight text-neutral-900">
-        Tentang Koperasi
-      </h2>
-      <div class="mt-10 space-y-6 text-lg text-neutral-600">
-        <p>
-          KSP CU Sinar Sejahtera hadir sebagai koperasi simpan pinjam yang
-          berfokus pada kesejahteraan anggota dalam jangka panjang.
-        </p>
-        <p>
-          Kami percaya bahwa pengelolaan keuangan yang sehat dimulai dari
-          kebersamaan, disiplin, dan tanggung jawab bersama.
-        </p>
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Image side -->
+      <div class="relative order-2 lg:order-1">
+        <img
+          src="/images/hero-illustration.webp"
+          alt="Kantor KSP CU Sinar Sejahtera di Juata Permai, Tarakan"
+          class="w-full rounded-3xl shadow-sm"
+          loading="lazy"
+        />
+        <!-- Floating badge -->
+        <div
+          class="absolute -bottom-5 -right-5 bg-white border border-neutral-100 rounded-2xl px-6 py-4 shadow-sm hidden md:block"
+        >
+          <p class="text-xs text-neutral-400 mb-1">Bergabung dalam jaringan</p>
+          <p class="text-sm font-semibold text-neutral-900">
+            PUSKOPDIT Sulawesi Selatan
+          </p>
+          <p class="text-xs text-neutral-500">
+            sejak Rapat Anggota Tahunan 2018
+          </p>
+        </div>
       </div>
 
-      <ul class="mt-12 grid md:grid-cols-3 gap-8 text-left">
-        <li class="flex gap-4">
-          <span class="text-2xl">•</span>
-          <span>Berbasis keanggotaan, bukan kepemilikan modal</span>
-        </li>
-        <li class="flex gap-4">
-          <span class="text-2xl">•</span>
-          <span>Dikelola secara transparan dan berkelanjutan</span>
-        </li>
-        <li class="flex gap-4">
-          <span class="text-2xl">•</span>
-          <span>Mengutamakan pendidikan dan pendampingan anggota</span>
-        </li>
-      </ul>
+      <!-- Text side -->
+      <div class="order-1 lg:order-2">
+        <p
+          class="text-sm font-medium tracking-widest uppercase text-primary mb-4"
+        >
+          Tentang Koperasi
+        </p>
+
+        <h2
+          class="text-4xl font-semibold tracking-tight text-neutral-900 leading-snug mb-6"
+        >
+          Bermula dari 23 orang, tumbuh bersama ratusan anggota
+        </h2>
+
+        <div class="space-y-4 text-neutral-600 leading-relaxed">
+          <p>
+            KSP CU Sinar Sejahtera berdiri pada 17 Mei 2014, digagas oleh 23
+            orang pendiri di Kelurahan Juata Permai, Tarakan. Sejak mendapatkan
+            badan hukum resmi pada 28 Februari 2015, koperasi ini terus tumbuh
+            sebagai lembaga keuangan berbasis komunitas yang melayani anggotanya
+            setiap hari kerja.
+          </p>
+          <p>
+            Berbeda dari bank atau lembaga keuangan konvensional, KSP CUSS
+            dijalankan sepenuhnya oleh dan untuk anggotanya sendiri. Setiap
+            keputusan penting diambil bersama dalam Rapat Anggota, dan setiap
+            keuntungan dikembalikan kepada anggota yang aktif berpartisipasi.
+          </p>
+        </div>
+
+        <ul class="mt-8 space-y-3">
+          {
+            [
+              'Berbasis keanggotaan, bukan kepemilikan modal pihak luar',
+              'Dikelola secara transparan melalui Rapat Anggota Tahunan',
+              'Mengutamakan pendidikan dan pendampingan sebagai fondasi layanan',
+            ].map((item) => (
+              <li class="flex gap-3 text-sm text-neutral-700">
+                <svg
+                  class="w-4 h-4 text-primary shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+
+        <a
+          href="/tentang-kami"
+          class="mt-8 inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors"
+        >
+          Baca profil lengkap koperasi
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>

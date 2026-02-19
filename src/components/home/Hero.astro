@@ -1,28 +1,67 @@
 ---
-const title = 'Koperasi Credit Union untuk Kesejahteraan Bersama';
-const subtitle =
-  'KSP CU Sinar Sejahtera adalah koperasi simpan pinjam berbasis Credit Union yang dikelola oleh dan untuk anggota secara bertanggung jawab.';
+// Hero.astro
+// Beranda - Hero section
+// Headline grounded in CUSS identity: Tarakan, community, 2014 founding spirit
 ---
 
-<section class="bg-white py-20 md:py-28">
+<section class="bg-white pt-24 pb-20 md:pt-32 md:pb-28">
   <div class="container-content">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <!-- Text -->
       <div class="flex flex-col justify-center">
+        <!-- Eyebrow -->
+        <p
+          class="text-sm font-medium tracking-widest uppercase text-primary mb-6"
+        >
+          Tarakan, sejak 2014
+        </p>
+
         <h1
           class="text-5xl md:text-6xl font-semibold tracking-tight text-neutral-900 leading-[1.1]"
         >
-          {title}
+          Menabung bersama, membangun masa depan bersama
         </h1>
-        <p class="mt-6 text-xl md:text-2xl text-neutral-600 max-w-[38ch]">
-          {subtitle}
+
+        <p class="mt-6 text-xl text-neutral-600 leading-relaxed max-w-[38ch]">
+          KSP CU Sinar Sejahtera adalah koperasi simpan pinjam berbasis Credit
+          Union, dikelola dari anggota, oleh anggota, dan untuk anggota di
+          Tarakan.
         </p>
-        <a
-          href="/tentang-kami"
-          class="mt-10 inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-4 rounded-3xl font-medium text-lg transition-all active:scale-95"
-        >
-          Kenali Cara Kerja Kami
-        </a>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href="/tentang-kami"
+            class="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-3xl font-medium text-base transition-all active:scale-95"
+          >
+            Kenali Cara Kerja Kami
+          </a>
+          <a
+            href="/keanggotaan"
+            class="inline-block bg-transparent border border-neutral-200 hover:border-neutral-400 text-neutral-700 px-8 py-4 rounded-3xl font-medium text-base transition-all active:scale-95"
+          >
+            Cara Bergabung
+          </a>
+        </div>
+
+        <!-- Trust anchors -->
+        <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          <div>
+            <p class="text-2xl font-semibold text-neutral-900">763+</p>
+            <p class="text-sm text-neutral-500">Anggota aktif</p>
+          </div>
+          <div class="w-px bg-neutral-100 self-stretch hidden sm:block"></div>
+          <div>
+            <p class="text-2xl font-semibold text-neutral-900">10 tahun</p>
+            <p class="text-sm text-neutral-500">Melayani sejak 2014</p>
+          </div>
+          <div class="w-px bg-neutral-100 self-stretch hidden sm:block"></div>
+          <div>
+            <p class="text-2xl font-semibold text-neutral-900">
+              Berbadan hukum
+            </p>
+            <p class="text-sm text-neutral-500">Sejak 28 Februari 2015</p>
+          </div>
+        </div>
       </div>
 
       <!-- Image -->

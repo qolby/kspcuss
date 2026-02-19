@@ -1,19 +1,142 @@
-<section class="bg-neutral-50 py-20 md:py-28">
-  <div class="container-content text-center">
-    <h2
-      class="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900"
-    >
-      Ingin Mengenal Lebih Dekat?
-    </h2>
-    <p class="mt-6 text-xl text-neutral-600 max-w-2xl mx-auto">
-      Kami percaya setiap pertanyaan adalah awal dari pemahaman. Silakan datang,
-      bertanya, dan berdiskusi bersama kami.
-    </p>
-    <a
-      href="/keanggotaan"
-      class="mt-10 inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-5 rounded-3xl font-medium text-lg transition-all active:scale-95"
-    >
-      Kunjungi halaman Keanggotaan →
-    </a>
+---
+// ClosingCTA.astro
+// Beranda - Closing Call to Action
+// Reframed as an honest, in-person invitation that reflects CUSS culture
+// Two paths: learn more about membership, or contact the office directly
+---
+
+<section class="bg-neutral-900 py-20 md:py-28">
+  <div class="container-content">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Text -->
+      <div>
+        <p
+          class="text-sm font-medium tracking-widest uppercase text-primary mb-6"
+        >
+          Mulai dari satu langkah
+        </p>
+        <h2
+          class="text-4xl md:text-5xl font-semibold tracking-tight text-white leading-tight"
+        >
+          Datang, bertanya, dan bergabunglah bersama kami
+        </h2>
+        <p class="mt-6 text-lg text-neutral-400 leading-relaxed max-w-lg">
+          Tidak ada proses online yang perlu diisi. Cukup datang ke kantor KSP
+          CUSS di Juata Permai, Tarakan Utara. Pengurus dan kasir kami siap
+          menjelaskan segalanya, dari nol.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href="/keanggotaan"
+            class="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-3xl font-medium text-base transition-all active:scale-95"
+          >
+            Pelajari Cara Bergabung
+          </a>
+          <a
+            href="/kontak"
+            class="inline-block bg-transparent border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white px-8 py-4 rounded-3xl font-medium text-base transition-all active:scale-95"
+          >
+            Lihat Kontak dan Lokasi
+          </a>
+        </div>
+      </div>
+
+      <!-- Office info card -->
+      <div class="bg-neutral-800 rounded-3xl p-8 border border-neutral-700">
+        <p
+          class="text-xs font-medium tracking-widest uppercase text-neutral-500 mb-6"
+        >
+          Kantor KSP CUSS
+        </p>
+        <div class="space-y-5">
+          <div class="flex gap-4">
+            <div
+              class="w-9 h-9 rounded-xl bg-neutral-700 flex items-center justify-center shrink-0"
+            >
+              <svg
+                class="w-4 h-4 text-neutral-400"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-white font-medium text-sm">
+                Jl. Aki Pinka RT.02 No. 45
+              </p>
+              <p class="text-neutral-400 text-sm">
+                Juata Permai, Tarakan Utara
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div
+              class="w-9 h-9 rounded-xl bg-neutral-700 flex items-center justify-center shrink-0"
+            >
+              <svg
+                class="w-4 h-4 text-neutral-400"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-white font-medium text-sm">Senin sampai Sabtu</p>
+              <p class="text-neutral-400 text-sm">Jam operasional kantor</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div
+              class="w-9 h-9 rounded-xl bg-neutral-700 flex items-center justify-center shrink-0"
+            >
+              <svg
+                class="w-4 h-4 text-neutral-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                ></path>
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.887a.75.75 0 0 0 .921.919l6.079-1.595A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.5c-2.015 0-3.898-.544-5.516-1.492l-.394-.23-4.09 1.072 1.093-3.98-.255-.408A10.44 10.44 0 0 1 1.5 12C1.5 6.201 6.201 1.5 12 1.5S22.5 6.201 22.5 12 17.799 22.5 12 22.5z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <a
+                href="https://wa.me/6282253851001"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white font-medium text-sm hover:text-primary transition-colors"
+              >
+                +62 822 5385 1001
+              </a>
+              <p class="text-neutral-400 text-sm">WhatsApp tersedia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

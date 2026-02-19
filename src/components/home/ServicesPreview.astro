@@ -1,41 +1,164 @@
+---
+// ServicesPreview.astro
+// Beranda - Layanan Utama (ringkas)
+// Three cards: Simpanan, Pinjaman, Pendekatan - no rates, no calculators
+---
+
 <section class="bg-neutral-50 py-16 md:py-24">
   <div class="container-content">
-    <h2
-      class="text-center text-4xl font-semibold tracking-tight text-neutral-900 mb-12"
+    <div
+      class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12"
     >
-      Layanan Utama
-    </h2>
+      <div>
+        <p
+          class="text-sm font-medium tracking-widest uppercase text-primary mb-4"
+        >
+          Layanan
+        </p>
+        <h2
+          class="text-4xl font-semibold tracking-tight text-neutral-900 leading-snug"
+        >
+          Layanan yang bekerja<br class="hidden md:block" /> untuk anggota
+        </h2>
+      </div>
+      <a
+        href="/layanan"
+        class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors shrink-0"
+      >
+        Lihat penjelasan lengkap
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+        </svg>
+      </a>
+    </div>
 
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-6">
       <!-- Simpanan -->
-      <div class="bg-white rounded-3xl p-10 border border-neutral-100">
-        <!-- <div class="text-4xl mb-6">💰</div> -->
-        <h3 class="text-3xl font-semibold mb-4">Simpanan Anggota</h3>
-        <p class="text-neutral-600 text-lg">
-          Simpanan menjadi fondasi utama dalam membangun kemandirian keuangan.
-          Melalui simpanan rutin, anggota berpartisipasi dalam pertumbuhan
-          koperasi.
+      <div
+        class="bg-white rounded-3xl p-8 border border-neutral-100 flex flex-col"
+      >
+        <div
+          class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-5 h-5 text-primary"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-neutral-900 mb-3">
+          Simpanan Anggota
+        </h3>
+        <p class="text-neutral-600 text-sm leading-relaxed flex-1">
+          Simpanan adalah fondasi keikutsertaan Anda di KSP CUSS. Setiap rupiah
+          yang ditabung memperkuat modal bersama dan meningkatkan akses layanan
+          Anda ke depannya. Tersedia berbagai jenis simpanan sesuai tujuan dan
+          kebutuhan.
         </p>
       </div>
 
       <!-- Pinjaman -->
-      <div class="bg-white rounded-3xl p-10 border border-neutral-100">
-        <!-- <div class="text-4xl mb-6">🏦</div> -->
-        <h3 class="text-3xl font-semibold mb-4">Pinjaman Bertanggung Jawab</h3>
-        <p class="text-neutral-600 text-lg">
-          Pinjaman diberikan berdasarkan kemampuan dan kebutuhan anggota, dengan
-          pendekatan pendampingan dan tanggung jawab bersama.
+      <div
+        class="bg-white rounded-3xl p-8 border border-neutral-100 flex flex-col"
+      >
+        <div
+          class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-5 h-5 text-primary"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.97Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.97Z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-neutral-900 mb-3">
+          Pinjaman Bertanggung Jawab
+        </h3>
+        <p class="text-neutral-600 text-sm leading-relaxed flex-1">
+          Pinjaman di KSP CUSS adalah bentuk gotong royong, bukan produk
+          komersial. Setiap permohonan dinilai secara cermat oleh Panitia Kredit
+          berdasarkan kebutuhan nyata dan kemampuan mengembalikan, bukan
+          semata-mata jumlah agunan.
         </p>
       </div>
-    </div>
 
-    <div class="text-center mt-12">
-      <a
-        href="/layanan"
-        class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium"
+      <!-- Pendekatan Layanan -->
+      <div
+        class="bg-primary text-primary-foreground rounded-3xl p-8 flex flex-col"
       >
-        Lihat penjelasan layanan →
-      </a>
+        <div
+          class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-5 h-5 text-primary-foreground"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl text-primary-foreground font-semibold mb-3">
+          Pendekatan Berbeda
+        </h3>
+        <p class="text-primary-foreground/80 text-sm leading-relaxed flex-1">
+          Sisa Hasil Usaha dikembalikan kepada anggota, bukan kepada pemegang
+          saham luar. Semakin aktif Anda menabung dan meminjam, semakin besar
+          manfaat yang Anda terima setiap akhir tahun buku.
+        </p>
+        <a
+          href="/layanan"
+          class="mt-8 inline-flex items-center gap-2 text-primary-foreground font-medium text-sm hover:gap-3 transition-all"
+        >
+          Pelajari selengkapnya
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
