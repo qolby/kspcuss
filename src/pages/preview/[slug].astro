@@ -1,0 +1,127 @@
+---
+// src/pages/preview/[slug].astro
+// This page is NOT linked from anywhere on the public site.
+// It exists only for the admin to verify draft content before publishing.
+// Access it at: /preview/your-post-slug?secret=your_preview_secret
+
+// This page must NOT be pre-rendered — it needs to run on-demand
+
+export const prerender = false;
+
+import { previewClient } from '../../lib/sanity.ts';
+import { POST_BY_SLUG_QUERY } from '../../lib/queries.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PortableText } from '@portabletext/react';
+import { urlFor } from '../../lib/image';
+
+const { slug } = Astro.params;
+const secret = Astro.url.searchParams.get('secret');
+
+if (secret !== import.meta.env.SANITY_PREVIEW_SECRET) {
+  return new Response('Akses ditolak. Secret tidak valid.', { status: 401 });
+}
+
+const post = await previewClient.fetch(POST_BY_SLUG_QUERY, { slug });
+
+if (!post) {
+  return new Response('Post tidak ditemukan.', { status: 404 });
+}
+
+const formattedDate = post.publishedAt
+  ? new Date(post.publishedAt).toLocaleDateString('id-ID', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  : 'Tanggal belum diisi';
+
+const categoryLabel =
+  post.category === 'berita'
+    ? 'Berita'
+    : post.category === 'pengumuman'
+      ? 'Pengumuman'
+      : '';
+
+// Build the image URL — only if the post has an image
+const imageUrl = post.image?.asset
+  ? urlFor(post.image).width(1200).height(600).fit('crop').url()
+  : null;
+
+const imageAlt = post.image?.alt || post.title;
+---
+
+<BaseLayout title={`PREVIEW: ${post.title}`}>
+  <div
+    style="background: #fef9c3; border-bottom: 2px solid #fde047; padding: 14px 24px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-family: sans-serif;"
+  >
+    <div class="container-content">
+      <span style="font-size: 20px;">⚠️</span>
+      <span>
+        <strong>Mode Preview</strong> — Ini adalah tampilan draft. Konten ini belum
+        dipublikasikan dan tidak terlihat oleh pengunjung.
+      </span>
+    </div>
+  </div>
+
+  <article style="max-width: 720px; margin: 60px auto 100px; padding: 0 24px;">
+    {
+      categoryLabel && (
+        <span style="display: inline-block; background: #e0f2fe; color: #0369a1; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 100px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em;">
+          {categoryLabel}
+        </span>
+      )
+    }
+
+    <h1
+      style="font-size: clamp(24px, 4vw, 36px); font-weight: 700; line-height: 1.25; margin: 0 0 12px; color: #111827;"
+    >
+      {post.title}
+    </h1>
+
+    <p style="font-size: 14px; color: #6b7280; margin: 0 0 32px;">
+      {formattedDate}
+    </p>
+
+    <!-- Featured image — now using the URL builder -->
+    {
+      imageUrl && (
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          style="width: 100%; border-radius: 8px; margin-bottom: 32px; display: block;"
+        />
+      )
+    }
+
+    {
+      post.excerpt && (
+        <p style="font-size: 17px; color: #374151; border-left: 3px solid #e5e7eb; padding-left: 16px; margin: 0 0 32px; font-style: italic; line-height: 1.7;">
+          {post.excerpt}
+        </p>
+      )
+    }
+
+    <hr
+      style="border: none; border-top: 1px solid #e5e7eb; margin-bottom: 32px;"
+    />
+
+    {
+      post.body && (
+        <div
+          class="prose"
+          style="font-size: 16px; line-height: 1.8; color: #1f2937;"
+        >
+          <PortableText value={post.body} client:load />
+        </div>
+      )
+    }
+
+    {
+      !post.body && (
+        <p style="color: #9ca3af; font-style: italic;">
+          Isi artikel belum diisi.
+        </p>
+      )
+    }
+  </article>
+</BaseLayout>

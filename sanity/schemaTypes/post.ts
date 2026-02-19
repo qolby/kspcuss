@@ -79,5 +79,14 @@ export default defineType({
       subtitle: 'category',
       media: 'image',
     },
+    prepare(selection: any) {
+      const {title, subtitle, media} = selection
+      return {
+        title: title || 'Tanpa Judul',
+        subtitle:
+          subtitle === 'berita' ? 'Berita' : subtitle === 'pengumuman' ? 'Pengumuman' : 'Draft',
+        media,
+      }
+    },
   },
 })
