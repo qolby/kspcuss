@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eligibility from '../components/keanggotaan/Eligibility.astro';
+import HakKewajiban from '../components/keanggotaan/HakKewajiban.astro';
+import AlurAnggota from '../components/keanggotaan/AlurAnggota.astro';
+---
+
+<BaseLayout title="Keanggotaan — KSP CU Sinar Sejahtera">
+  <!-- Page Header -->
+  <div
+    class="pt-24 pb-16 md:pt-32 md:pb-20 bg-neutral-50 border-b border-neutral-100"
+  >
+    <div class="max-w-[1152px] mx-auto px-5 md:px-8">
+      <p
+        class="text-sm font-medium tracking-widest uppercase text-primary mb-4"
+      >
+        Keanggotaan
+      </p>
+      <h1
+        class="text-4xl md:text-5xl font-semibold text-neutral-900 leading-tight max-w-2xl"
+      >
+        Bergabung dan tumbuh bersama
+      </h1>
+      <p class="mt-6 text-lg text-neutral-600 max-w-xl leading-relaxed">
+        Menjadi anggota KSP CUSS bukan sekadar membuka rekening. Ini adalah
+        keputusan untuk menjadi bagian dari komunitas yang saling membangun —
+        dari anggota, oleh anggota, untuk anggota.
+      </p>
+    </div>
+  </div>
+
+  <!-- Page Sections -->
+  <Eligibility />
+  <HakKewajiban />
+  <AlurAnggota />
+
+  <!-- Bottom CTA -->
+  <div class="py-20 bg-neutral-50 border-t border-neutral-100">
+    <div
+      class="max-w-[1152px] mx-auto px-5 md:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+    >
+      <div>
+        <p class="text-neutral-900 font-semibold text-lg mb-1">
+          Ada pertanyaan sebelum bergabung?
+        </p>
+        <p class="text-neutral-600 text-sm">
+          Kami siap menjawab — datang langsung atau hubungi kantor KSP CUSS.
+        </p>
+      </div>
+      <a
+        href="/kontak"
+        class="flex-shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+      >
+        Hubungi Kami
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

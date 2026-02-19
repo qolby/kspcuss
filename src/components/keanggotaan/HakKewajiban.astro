@@ -1,0 +1,156 @@
+---
+// HakKewajiban.astro
+// Rights and obligations — high-level overview as per spec
+// Grounded in CU principles: demokratis, pelayanan kepada anggota, tujuan sosial
+---
+
+<section class="py-20 md:py-28 bg-neutral-50">
+  <div class="max-w-[1152px] mx-auto px-5 md:px-8">
+    <p class="text-sm font-medium tracking-widest uppercase text-primary mb-4">
+      Hak & Kewajiban
+    </p>
+
+    <div class="max-w-2xl mb-14">
+      <h2
+        class="text-3xl md:text-4xl font-semibold text-neutral-900 leading-snug mb-6"
+      >
+        Anggota adalah pemilik, bukan nasabah
+      </h2>
+      <p class="text-neutral-600 leading-relaxed">
+        Di KSP CU Sinar Sejahtera, setiap anggota adalah bagian dari kepemilikan
+        bersama. Hak dan kewajiban dirancang untuk menjaga keseimbangan antara
+        kepentingan individu dan kesehatan koperasi secara keseluruhan.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- HAK -->
+      <div>
+        <h3
+          class="text-xl font-semibold text-neutral-900 mb-8 flex items-center gap-3"
+        >
+          <span
+            class="w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center"
+            >H</span
+          >
+          Hak Anggota
+        </h3>
+        <ul class="space-y-5">
+          {
+            [
+              {
+                title: 'Mengakses layanan simpanan dan pinjaman',
+                desc: 'Setelah memenuhi syarat masa keanggotaan dan menyelesaikan pendidikan dasar, anggota berhak mengajukan pinjaman dan memanfaatkan seluruh produk simpanan.',
+              },
+              {
+                title: 'Bersuara dan memilih dalam Rapat Anggota',
+                desc: 'Setiap anggota memiliki satu suara dalam Rapat Anggota Tahunan — terlepas dari besar kecilnya simpanan. Ini adalah prinsip demokrasi koperasi yang membedakan CU dari lembaga keuangan biasa.',
+              },
+              {
+                title: 'Mendapatkan Balas Jasa Simpanan dan Pinjaman',
+                desc: 'Sisa Hasil Usaha (SHU) dibagikan kepada anggota dalam bentuk Balas Jasa Simpanan (BJS) dan Balas Jasa Pinjaman (BJP) sesuai keputusan rapat dan tingkat partisipasi anggota.',
+              },
+              {
+                title: 'Mendapatkan santunan duka',
+                desc: 'Anggota aktif yang meninggal dunia berhak atas santunan dari KSP CUSS sebesar Rp5.000.000. Seluruh simpanan dapat ditarik oleh ahli waris dan anggota yang meninggal tidak dikenai biaya administrasi.',
+              },
+              {
+                title: 'Mendapatkan informasi dan laporan keuangan',
+                desc: 'Anggota berhak mengetahui perkembangan dan kondisi keuangan koperasi melalui laporan yang disampaikan dalam Rapat Anggota Tahunan.',
+              },
+            ].map((item) => (
+              <li class="flex gap-4">
+                <svg
+                  class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                </svg>
+                <div>
+                  <p class="font-medium text-neutral-900 text-sm mb-1">
+                    {item.title}
+                  </p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- KEWAJIBAN -->
+      <div>
+        <h3
+          class="text-xl font-semibold text-neutral-900 mb-8 flex items-center gap-3"
+        >
+          <span
+            class="w-8 h-8 rounded-full bg-neutral-300 text-neutral-700 text-sm font-bold flex items-center justify-center"
+            >K</span
+          >
+          Kewajiban Anggota
+        </h3>
+        <ul class="space-y-5">
+          {
+            [
+              {
+                title: 'Membayar Simpanan Pokok dan Simpanan Wajib',
+                desc: 'Simpanan Pokok sebesar Rp500.000 (dapat dicicil) dan Simpanan Wajib Rp80.000 per bulan adalah kontribusi dasar yang memperkuat modal bersama koperasi.',
+              },
+              {
+                title: 'Mengikuti Pendidikan Dasar',
+                desc: 'Setiap anggota biasa wajib mengikuti Pendidikan Dasar KSP CUSS secara penuh. Pendidikan adalah pilar utama gerakan Credit Union.',
+              },
+              {
+                title: 'Mengangsur pinjaman tepat waktu',
+                desc: 'Toleransi keterlambatan angsuran adalah 3 hari kerja dari tanggal jatuh tempo. Kedisiplinan anggota menjaga kepercayaan dan kesehatan keuangan koperasi untuk semua.',
+              },
+              {
+                title: 'Mematuhi AD/ART dan kebijakan koperasi',
+                desc: 'Seluruh keputusan yang disahkan dalam Rapat Anggota dan Pola Kebijakan Tahunan (POLJAK) mengikat seluruh anggota aktif.',
+              },
+              {
+                title: 'Membayar Iuran Solidaritas Duka',
+                desc: 'Iuran sebesar Rp50.000 per tahun ini adalah wujud nyata semangat gotong royong — untuk memastikan setiap anggota yang berduka mendapatkan dukungan dari sesama anggota.',
+              },
+            ].map((item) => (
+              <li class="flex gap-4">
+                <svg
+                  class="w-5 h-5 text-neutral-400 shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                  />
+                </svg>
+                <div>
+                  <p class="font-medium text-neutral-900 text-sm mb-1">
+                    {item.title}
+                  </p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

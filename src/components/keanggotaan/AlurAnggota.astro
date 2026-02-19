@@ -1,0 +1,110 @@
+---
+// AlurAnggota.astro
+// Step-by-step offline membership process — numbered vertical timeline
+// Based on POLJAK 2025 syarat Anggota Biasa
+---
+
+<section class="py-20 md:py-28 bg-white">
+  <div class="max-w-[1152px] mx-auto px-5 md:px-8">
+
+    <p class="text-sm font-medium tracking-widest uppercase text-primary mb-4">Alur Pendaftaran</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: intro -->
+      <div class="lg:sticky lg:top-24">
+        <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 leading-snug mb-6">
+          Bagaimana cara menjadi anggota?
+        </h2>
+        <p class="text-neutral-600 leading-relaxed mb-6">
+          Proses pendaftaran dilakukan secara langsung di kantor KSP CUSS. Seluruh tahapan dirancang untuk memastikan calon anggota memahami komitmen yang diambil — bukan sekadar mengisi formulir.
+        </p>
+        <p class="text-neutral-600 leading-relaxed mb-8">
+          Tidak ada pendaftaran online di tahap ini. Datang langsung ke kantor — pengurus siap menyambut dan memandu Anda.
+        </p>
+
+        <!-- Office info card -->
+        <div class="bg-neutral-50 border border-neutral-100 rounded-2xl p-6">
+          <p class="text-xs font-medium tracking-widest uppercase text-neutral-400 mb-4">Kantor KSP CUSS</p>
+          <div class="space-y-3 text-sm text-neutral-600">
+            <div class="flex gap-3">
+              <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+              <span>Jl. Aki Pinka RT.02 No. 45, Kelurahan Juata Permai, Tarakan Utara, Kota Tarakan</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <span>Senin – Sabtu, jam operasional kantor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: timeline steps -->
+      <div>
+        <ol class="relative">
+
+          {[
+            {
+              step: '01',
+              title: 'Datang ke kantor & ambil formulir',
+              desc: 'Kunjungi kantor KSP CUSS dan minta formulir permohonan keanggotaan. Pengurus atau kasir akan menjelaskan gambaran umum tentang koperasi dan proses yang akan dilalui.',
+            },
+            {
+              step: '02',
+              title: 'Lengkapi dokumen yang diperlukan',
+              desc: 'Siapkan fotocopy KTP dan Kartu Keluarga. Jika tidak memiliki tempat tinggal tetap, lampirkan fotocopy KTP promotor yang berdomisili tetap. Pastikan usia tidak melebihi 65 tahun.',
+            },
+            {
+              step: '03',
+              title: 'Serahkan formulir & dokumen ke pengurus',
+              desc: 'Formulir yang telah diisi lengkap diserahkan bersama dokumen pendukung. Pengurus akan memeriksa kelengkapan dan melakukan proses persetujuan.',
+            },
+            {
+              step: '04',
+              title: 'Membayar setoran awal',
+              desc: 'Setoran awal minimal Rp500.000 mencakup bagian dari Simpanan Pokok (Rp400.000 dapat dicicil selama satu tahun) dan biaya awal lainnya. Pembayaran dilakukan di kasir kantor.',
+            },
+            {
+              step: '05',
+              title: 'Ikuti Pendidikan Dasar KSP CUSS',
+              desc: 'Setelah diterima sebagai anggota, Anda wajib mengikuti Pendidikan Dasar secara penuh. Jadwal dan materi disiapkan oleh Panitia Pendidikan. Sebelum pendidikan selesai, hak pinjaman belum dapat digunakan.',
+            },
+            {
+              step: '06',
+              title: 'Aktif sebagai anggota penuh',
+              desc: 'Setelah menyelesaikan pendidikan dasar dan memenuhi masa keanggotaan 3 bulan, Anda memiliki akses penuh ke seluruh layanan koperasi — termasuk hak untuk mengajukan pinjaman dan berpartisipasi dalam Rapat Anggota.',
+            },
+          ].map((item, index, arr) => (
+            <li class={`flex gap-6 ${index < arr.length - 1 ? 'pb-10' : ''} relative`}>
+
+              <!-- Vertical line connector -->
+              {index < arr.length - 1 && (
+                <div class="absolute left-5 top-10 bottom-0 w-px bg-neutral-100" aria-hidden="true"></div>
+              )}
+
+              <!-- Step number circle -->
+              <div class="shrink-0 w-10 h-10 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center z-10">
+                <span class="text-xs font-bold text-primary">{item.step}</span>
+              </div>
+
+              <!-- Content -->
+              <div class="pt-1.5 pb-2">
+                <p class="font-semibold text-neutral-900 mb-2">{item.title}</p>
+                <p class="text-sm text-neutral-500 leading-relaxed">{item.desc}</p>
+              </div>
+
+            </li>
+          ))}
+
+        </ol>
+      </div>
+
+    </div>
+
+  </div>
+</section>
