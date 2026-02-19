@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactInfo from '../components/kontak/ContactInfo.astro';
+---
+
+<BaseLayout
+  title="Kontak -- KSP CU Sinar Sejahtera"
+  description="Temukan alamat, jam operasional, dan jadwal layanan KSP CU Sinar Sejahtera di Tarakan, Kalimantan Utara."
+>
+  <!-- Page Header -->
+  <div
+    class="pt-24 pb-16 md:pt-32 md:pb-20 bg-neutral-50 border-b border-neutral-100"
+  >
+    <div class="container-content">
+      <p
+        class="text-sm font-medium tracking-widest uppercase text-primary mb-4"
+      >
+        Kontak
+      </p>
+      <h1
+        class="text-4xl md:text-5xl font-semibold text-neutral-900 leading-tight max-w-2xl"
+      >
+        Kami ada di Tarakan, siap menyambut Anda
+      </h1>
+      <p class="mt-6 text-lg text-neutral-600 max-w-xl leading-relaxed">
+        Kunjungi kantor KSP CUSS langsung untuk mendaftar keanggotaan,
+        mengajukan pinjaman, atau sekadar mencari tahu lebih lanjut. Tidak ada
+        pertanyaan yang terlalu kecil.
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact Info -->
+  <ContactInfo />
+
+  <!-- Bottom note: no form -->
+  <div class="py-16 bg-neutral-50 border-t border-neutral-100">
+    <div class="container-content">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium text-neutral-900 mb-2">
+          Belum ada formulir online
+        </p>
+        <p class="text-sm text-neutral-500 leading-relaxed">
+          Seluruh proses pendaftaran dan pengajuan layanan dilakukan secara
+          langsung di kantor. Ini bukan keterbatasan, ini adalah cara kami
+          memastikan setiap calon anggota dan anggota mendapatkan perhatian dan
+          penjelasan yang layak dari pengurus.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
