@@ -1,7 +1,7 @@
 // sanity/plugins/previewAction.ts
 
 const PREVIEW_SECRET = 'ksp-cuss-preview-2026' // must match SANITY_PREVIEW_SECRET in your .env
-const PREVIEW_BASE_URL = 'http://localhost:4321' // change to your live URL after deployment
+const PREVIEW_BASE_URL = 'https://ksp-cuss.netlify.app' // change to your live URL after deployment
 
 export function PreviewAction(props: any) {
   const {draft, published} = props
