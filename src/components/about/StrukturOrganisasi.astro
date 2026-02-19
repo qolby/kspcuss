@@ -1,28 +1,41 @@
 ---
-const structure = {
-  penasihat: [{ name: 'Simon Hanga Karang, S.H.', role: 'Penasihat' }],
-  pengurus: [
-    { name: 'Jeni Manangnga, S.Pd.', role: 'Ketua' },
-    { name: 'Pery Loboran, S.IP.', role: 'Wakil Ketua' },
-    { name: 'Jupri Malino, S.Pd.', role: 'Sekretaris' },
-    { name: 'Hendrikus Beni Hardus, S.Fil.', role: 'Bendahara' },
-    { name: 'Paulus Eko Haryadi', role: 'Anggota' },
-  ],
-  pengawas: [
-    { name: 'Yulianus Bassi, S.Sos., S.Pd.', role: 'Ketua Pengawas' },
-    { name: 'Kriswani Sau', role: 'Sekretaris' },
-    { name: 'Agustinus Sampe, S.Pi.', role: 'Anggota' },
-  ],
-  karyawan: [
-    { name: 'Jana Keristiani', role: 'Kasir' },
-    { name: 'Kevin Fernandianto Lubis, S.Kom.', role: 'Kasir' },
-    { name: 'Fidelsia Gaspatama', role: 'Kasir' },
-  ],
-};
+const pengurus = [
+  { name: "Jeni Manangnga, S.Pd.", role: "Ketua" },
+  { name: "Pery Loboran, S.IP.", role: "Wakil Ketua" },
+  { name: "Jupri Malino, S.Pd.", role: "Sekretaris" },
+  { name: "Hendrikus Beni Hardus, S.Fil.", role: "Bendahara" },
+  { name: "Paulus Eko Haryadi", role: "Anggota" },
+];
+
+const pengawas = [
+  { name: "Yulianus Bassi, S.Sos., S.Pd.", role: "Ketua" },
+  { name: "Kriswani Sau", role: "Sekretaris" },
+  { name: "Agustinus Sampe, S.Pi.", role: "Anggota" },
+];
+
+const karyawan = [
+  { name: "Jana Keristiani", role: "Kasir" },
+  { name: "Kevin Fernandianto Lubis, S.Kom.", role: "Kasir" },
+  { name: "Fidelsia Gaspatama", role: "Kasir" },
+  { name: "Rafael Lusi Lengari", role: "Penjaga Malam" },
+];
+
+const panitia_pendidikan = [
+  { name: "Pery Loboran, S.IP.", role: "Pendamping" },
+  { name: "Margareta Meman, S.Pd.", role: "Anggota" },
+  { name: "Sri Delvia", role: "Anggota" },
+];
+
+const panitia_kredit = [
+  { name: "Paulus Eko Haryadi", role: "Pendamping" },
+  { name: "Ganti Fredi", role: "Anggota" },
+  { name: "Meston Lubis", role: "Anggota" },
+];
 ---
 
 <section class="bg-white py-16 md:py-24">
   <div class="container-content">
+    <!-- Header -->
     <div class="max-w-2xl mb-12 md:mb-16">
       <p
         class="text-sm font-semibold tracking-widest uppercase text-primary mb-4"
@@ -34,87 +47,627 @@ const structure = {
       </h2>
     </div>
 
-    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-      <!-- Penasihat -->
-      <div>
-        <h3
-          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
-        >
-          Penasihat
-        </h3>
-        <ul class="space-y-3">
-          {
-            structure.penasihat.map((p) => (
-              <li>
-                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
-                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
-              </li>
-            ))
-          }
-        </ul>
+    <!-- Org Chart -->
+    <div class="oc" id="oc-root">
+      <!-- SVG overlay: lines are drawn here by the script below -->
+      <svg
+        id="oc-svg"
+        aria-hidden="true"
+        class="oc__svg"
+        xmlns="http://www.w3.org/2000/svg"></svg>
+
+      <!-- ── ROW 0: Rapat Anggota (left-aligned) ── -->
+      <div class="oc__row oc__row--ra">
+        <div class="oc__box oc__box--ra ml-22" id="box-ra">
+          <span class="oc__label">Rapat Anggota (R.A.)</span>
+        </div>
+        <!-- spacer to keep RA left -->
+        <div class="oc__row-spacer"></div>
       </div>
 
-      <!-- Pengurus -->
-      <div>
-        <h3
-          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
+      <!-- ── ROW 1: Penasehat (right-aligned) ── -->
+      <div class="oc__row oc__row--penasehat">
+        <!-- spacer to push Penasehat right -->
+        <div class="oc__row-spacer"></div>
+        <div
+          class="oc__box oc__box--warm oc__box--penasehat max-w-1/3"
+          id="box-penasehat"
         >
-          Pengurus
-        </h3>
-        <ul class="space-y-3">
-          {
-            structure.pengurus.map((p) => (
-              <li>
-                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
-                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
-              </li>
-            ))
-          }
-        </ul>
+          <span class="oc__label">Penasehat</span>
+          <p class="oc__single-name">Simon Hanga Karang, S.H.</p>
+        </div>
       </div>
 
-      <!-- Pengawas -->
-      <div>
-        <h3
-          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
+      <!-- ── ROW 2: Pengurus & Pengawas ── -->
+      <div class="oc__row oc__row--mid gap-12">
+        <div
+          class="oc__box oc__box--primary oc__box--half max-w-2/5 mr-15"
+          id="box-pengurus"
         >
-          Pengawas
-        </h3>
-        <ul class="space-y-3">
-          {
-            structure.pengawas.map((p) => (
-              <li>
-                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
-                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
-              </li>
-            ))
-          }
-        </ul>
+          <span class="oc__label">Pengurus</span>
+          <ul class="oc__member-list">
+            {
+              pengurus.map((m) => (
+                <li>
+                  <span class="oc__name">{m.name}</span>
+                  <span class="oc__role">{m.role}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div
+          class="oc__box oc__box--primary oc__box--half max-w-2/5"
+          id="box-pengawas"
+        >
+          <span class="oc__label">Pengawas</span>
+          <ul class="oc__member-list">
+            {
+              pengawas.map((m) => (
+                <li>
+                  <span class="oc__name">{m.name}</span>
+                  <span class="oc__role">{m.role}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
 
-      <!-- Karyawan -->
-      <div>
-        <h3
-          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
+      <!-- ── ROW 3: Panitia Pendidikan & Panitia Kredit ── -->
+      <div class="oc__row oc__row--panitia">
+        <div
+          class="oc__box oc__box--primary oc__box--half max-w-2/5 mr-15"
+          id="box-panitia-pendidikan"
         >
-          Karyawan
-        </h3>
-        <ul class="space-y-3">
-          {
-            structure.karyawan.map((p) => (
-              <li>
-                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
-                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
-              </li>
-            ))
-          }
-        </ul>
+          <span class="oc__label">Panitia Pendidikan</span>
+          <ul class="oc__member-list">
+            {
+              panitia_pendidikan.map((m) => (
+                <li>
+                  <span class="oc__name">{m.name}</span>
+                  <span class="oc__role">{m.role}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div
+          class="oc__box oc__box--primary oc__box--half max-w-2/5"
+          id="box-panitia-kredit"
+        >
+          <span class="oc__label">Panitia Kredit</span>
+          <ul class="oc__member-list">
+            {
+              panitia_kredit.map((m) => (
+                <li>
+                  <span class="oc__name">{m.name}</span>
+                  <span class="oc__role">{m.role}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <p class="mt-12 text-sm text-neutral-400">
+      <!-- ── ROW 4: Karyawan ── -->
+      <div class="oc__row oc__row--bottom">
+        <div class="oc__box oc__box--warm oc__box--karyawan" id="box-karyawan">
+          <span class="oc__label">Karyawan</span>
+          <ul class="oc__member-list">
+            {
+              karyawan.map((m) => (
+                <li>
+                  <span class="oc__name">{m.name}</span>
+                  <span class="oc__role">{m.role}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div><!-- /oc -->
+
+    <p class="mt-16 text-sm text-neutral-400">
       Data kepengurusan dapat berubah sesuai hasil Rapat Anggota Tahunan (RAT)
       berikutnya.
     </p>
   </div>
 </section>
+
+<style>
+  /* ── Design tokens ─────────────────────────────────────────── */
+  .oc {
+    --c-primary: oklch(32% 0.07 210);
+    --c-primary-tint: oklch(96% 0.015 210);
+    --c-primary-border: oklch(62% 0.07 210);
+    --c-warm-tint: oklch(97% 0.03 85);
+    --c-warm-border: oklch(74% 0.09 85);
+    --c-line: oklch(55% 0.05 210);
+    --c-text: oklch(20% 0.05 210);
+    --c-muted: oklch(46% 0.05 210);
+    --row-gap: 3rem;
+    --chart-max-w: 800px;
+    --col-gap: 2rem;
+  }
+
+  /* ── Outer wrap (position:relative so SVG can cover it) ─── */
+  .oc {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--row-gap);
+    width: 100%;
+    max-width: var(--chart-max-w);
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
+  /* ── SVG overlay ────────────────────────────────────────────── */
+  .oc__svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  /* ── Rows ────────────────────────────────────────────────────── */
+  .oc__row {
+    display: flex;
+    width: 100%;
+    gap: var(--col-gap);
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 1; /* sit above the SVG lines */
+  }
+
+  .oc__row--ra,
+  .oc__row--penasehat {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .oc__row--bottom {
+    justify-content: center;
+  }
+
+  .oc__row--mid,
+  .oc__row--panitia {
+    justify-content: center;
+  }
+
+  /* invisible spacer that mirrors the RA/Penasehat box width */
+  .oc__row-spacer {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* ── Boxes ──────────────────────────────────────────────────── */
+  .oc__box {
+    border-radius: 8px;
+    border: 1.5px solid;
+    padding: 0.875rem 1rem;
+    background: white; /* ensures boxes sit above SVG lines cleanly */
+  }
+
+  .oc__box--half {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .oc__box--karyawan {
+    width: 60%;
+    min-width: 280px;
+  }
+
+  .oc__box--penasehat {
+    width: 60%;
+    min-width: 240px;
+  }
+
+  /* RA box */
+  .oc__box--ra {
+    background: var(--c-primary);
+    border-color: var(--c-primary);
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    min-width: 180px;
+  }
+  .oc__box--ra .oc__label {
+    color: oklch(97% 0.005 210);
+    margin-bottom: 0;
+    font-size: 0.78rem;
+  }
+
+  /* Primary teal tint */
+  .oc__box--primary {
+    background: var(--c-primary-tint);
+    border-color: var(--c-primary-border);
+  }
+
+  /* Warm yellow tint */
+  .oc__box--warm {
+    background: var(--c-warm-tint);
+    border-color: var(--c-warm-border);
+  }
+
+  /* ── Box typography ──────────────────────────────────────────── */
+  .oc__label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-primary);
+    margin-bottom: 0.6rem;
+  }
+
+  .oc__single-name {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--c-text);
+    line-height: 1.4;
+  }
+
+  /* ── Member list ─────────────────────────────────────────────── */
+  .oc__member-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .oc__member-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--c-text);
+    line-height: 1.5;
+  }
+  .oc__name {
+    font-weight: 600;
+    flex: 1;
+    min-width: 0;
+  }
+  .oc__role {
+    font-weight: 400;
+    color: var(--c-muted);
+    font-size: 0.775rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .oc {
+      --row-gap: 2rem;
+      --col-gap: 1rem;
+    }
+    .oc__row--mid,
+    .oc__row--panitia {
+      flex-direction: column;
+      align-items: center;
+    }
+    .oc__box--half {
+      width: 100%;
+    }
+    .oc__box--karyawan,
+    .oc__box--penasehat {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+</style>
+
+<script>
+  // ── SVG connector line drawing ──────────────────────────────────
+  const C_LINE = "oklch(55% 0.05 210)";
+
+  // Helper: get bounding rect relative to the chart root element
+  function relRect(el: Element, root: Element): DOMRect {
+    const elR = el.getBoundingClientRect();
+    const rootR = root.getBoundingClientRect();
+    return new DOMRect(
+      elR.left - rootR.left,
+      elR.top - rootR.top,
+      elR.width,
+      elR.height,
+    );
+  }
+
+  // Helper: create an SVG element
+  function svgEl(tag: string, attrs: Record<string, string | number>): Element {
+    const el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, String(v));
+    return el;
+  }
+
+  // Ensure arrow marker defs are added once
+  function ensureDefs(svg: SVGSVGElement) {
+    // Always resolve defs to a guaranteed non-null Element
+    const defs: Element =
+      svg.querySelector("defs") ??
+      (() => {
+        const d = svgEl("defs", {});
+        svg.appendChild(d);
+        return d;
+      })();
+
+    // Solid arrowhead pointing in the line direction (end)
+    if (!svg.querySelector("#arr-end")) {
+      const m = svgEl("marker", {
+        id: "arr-end",
+        markerWidth: "8",
+        markerHeight: "8",
+        refX: "8",
+        refY: "4",
+        orient: "auto",
+      });
+      m.appendChild(svgEl("path", { d: "M0,0 L8,4 L0,8 Z", fill: C_LINE }));
+      defs.appendChild(m);
+    }
+
+    // Left-pointing arrowhead (for double arrow start)
+    if (!svg.querySelector("#arr-start")) {
+      const m = svgEl("marker", {
+        id: "arr-start",
+        markerWidth: "8",
+        markerHeight: "8",
+        refX: "0",
+        refY: "4",
+        orient: "auto",
+      });
+      m.appendChild(svgEl("path", { d: "M8,0 L0,4 L8,8 Z", fill: C_LINE }));
+      defs.appendChild(m);
+    }
+
+    // Left-pointing arrowhead for dashed line
+    if (!svg.querySelector("#arr-dash")) {
+      const m = svgEl("marker", {
+        id: "arr-dash",
+        markerWidth: "8",
+        markerHeight: "8",
+        refX: "0",
+        refY: "4",
+        orient: "auto",
+      });
+      m.appendChild(svgEl("path", { d: "M8,0 L0,4 L8,8 Z", fill: C_LINE }));
+      defs.appendChild(m);
+    }
+  }
+
+  // Draw a straight solid line with an arrowhead at the destination end
+  function arrow(
+    svg: SVGSVGElement,
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+  ) {
+    svg.appendChild(
+      svgEl("line", {
+        x1,
+        y1,
+        x2,
+        y2,
+        stroke: C_LINE,
+        "stroke-width": "2",
+        "marker-end": "url(#arr-end)",
+      }),
+    );
+  }
+
+  // Draw a plain line (no arrowhead) – used for T-branch segments
+  function seg(
+    svg: SVGSVGElement,
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+  ) {
+    svg.appendChild(
+      svgEl("line", {
+        x1,
+        y1,
+        x2,
+        y2,
+        stroke: C_LINE,
+        "stroke-width": "2",
+      }),
+    );
+  }
+
+  // Draw a horizontal dashed line from (x1,y) to (x2,y) with a left arrow at start
+  function dashedArrowLeft(
+    svg: SVGSVGElement,
+    x1: number,
+    y: number,
+    x2: number,
+  ) {
+    svg.appendChild(
+      svgEl("line", {
+        x1,
+        y1: y,
+        x2,
+        y2: y,
+        stroke: C_LINE,
+        "stroke-width": "2",
+        "stroke-dasharray": "6 4",
+        // "marker-start": "url(#arr-dash)",
+        "marker-end": "url(#arr-end)",
+      }),
+    );
+  }
+
+  function dashedArrowRight(
+    svg: SVGSVGElement,
+    x1: number,
+    y: number,
+    x2: number,
+  ) {
+    svg.appendChild(
+      svgEl("line", {
+        x1,
+        y1: y,
+        x2,
+        y2: y,
+        stroke: C_LINE,
+        "stroke-width": "2",
+        "stroke-dasharray": "6 4",
+        "marker-end": "url(#arr-end)", // arrowhead at Penasehat side
+      }),
+    );
+  }
+
+  // Draw a T-branch with arrowheads at the two bottom ends
+  function tBranch(
+    svg: SVGSVGElement,
+    fromX: number,
+    fromY: number,
+    toLeftX: number,
+    toRightX: number,
+    toY: number,
+  ) {
+    const midY = fromY + (toY - fromY) / 2;
+    seg(svg, fromX, fromY, fromX, midY); // vertical down from source
+    seg(svg, toLeftX, midY, toRightX, midY); // horizontal bar
+    arrow(svg, toLeftX, midY, toLeftX, toY); // left drop (with arrow)
+    arrow(svg, toRightX, midY, toRightX, toY); // right drop (with arrow)
+  }
+
+  // Draw a double-headed horizontal arrow between two boxes
+  function doubleArrow(svg: SVGSVGElement, x1: number, y: number, x2: number) {
+    svg.appendChild(
+      svgEl("line", {
+        x1,
+        y1: y,
+        x2,
+        y2: y,
+        stroke: C_LINE,
+        "stroke-width": "2",
+        "marker-start": "url(#arr-start)",
+        "marker-end": "url(#arr-end)",
+      }),
+    );
+  }
+
+  function drawOrgChart() {
+    const root = document.getElementById("oc-root");
+    const svg = document.getElementById("oc-svg") as SVGSVGElement | null;
+    if (!root || !svg) return;
+
+    svg.innerHTML = "";
+    ensureDefs(svg);
+
+    const isMobile = window.innerWidth <= 640;
+
+    const ra = relRect(document.getElementById("box-ra")!, root);
+    const penasehat = relRect(document.getElementById("box-penasehat")!, root);
+    const pengurus = relRect(document.getElementById("box-pengurus")!, root);
+    const pengawas = relRect(document.getElementById("box-pengawas")!, root);
+    const panitiaP = relRect(
+      document.getElementById("box-panitia-pendidikan")!,
+      root,
+    );
+    const panitiaK = relRect(
+      document.getElementById("box-panitia-kredit")!,
+      root,
+    );
+    const karyawan = relRect(document.getElementById("box-karyawan")!, root);
+
+    if (isMobile) {
+      // ── Mobile: simple vertical stack with arrows ──
+      const cx = ra.left + ra.width / 2;
+      arrow(svg, cx, ra.bottom, cx, pengurus.top);
+      const pengurusCxM = pengurus.left + pengurus.width / 2;
+      const panitiaPCxM = panitiaP.left + panitiaP.width / 2;
+      arrow(svg, pengurusCxM, pengurus.bottom, panitiaPCxM, panitiaP.top);
+      const karyawanCxM = karyawan.left + karyawan.width / 2;
+      arrow(svg, panitiaPCxM, panitiaP.bottom, karyawanCxM, karyawan.top);
+    } else {
+      // ── Desktop layout ────────────────────────────────────────────
+      const raCx = ra.left + ra.width / 2;
+      const pengurusCx = pengurus.left + pengurus.width / 2;
+
+      // 1. RA (bottom) straight down to Pengurus (top) — passes through the
+      //    Penasehat row without touching it
+      arrow(svg, raCx, ra.bottom, pengurusCx, pengurus.top);
+
+      // 2. Penasehat → dashed horizontal arrow left to the RA vertical axis
+      //    The arrow points left (toward the vertical line from RA)
+      const penasehatMidY = penasehat.top + penasehat.height / 2;
+      // x1 = left edge of Penasehat box, x2 = raCx (on the vertical line)
+      dashedArrowLeft(svg, penasehat.left, penasehatMidY, raCx);
+      // dashedArrowRight(svg, raCx, penasehatMidY, penasehat.left);
+
+      // 3. Pengurus ↔ Pengawas: double-headed horizontal arrow
+      const arrowY = pengurus.top + pengurus.height / 2;
+      doubleArrow(svg, pengurus.right, arrowY, pengawas.left);
+
+      // 4. Compute shared geometry
+      const panitiaPCx = panitiaP.left + panitiaP.width / 2;
+      const panitiaKCx = panitiaK.left + panitiaK.width / 2;
+      const dividerX = (panitiaP.right + panitiaK.left) / 2;
+      const dividerTop = Math.min(panitiaP.top, panitiaK.top);
+      const dividerBottom = Math.max(panitiaP.bottom, panitiaK.bottom);
+
+      // midpoint Y between Pengurus bottom and Panitia top — where the T bar sits
+      const barY = pengurus.bottom + (dividerTop - pengurus.bottom) / 2;
+
+      // 4a. Stem from Pengurus down to the bar
+      seg(svg, pengurusCx, pengurus.bottom, pengurusCx, barY);
+
+      // 4b. Horizontal bar spanning both Panitia center-Xs
+      seg(svg, panitiaPCx, barY, panitiaKCx, barY);
+
+      // 4c. Drop arrows from bar down into each Panitia box
+      arrow(svg, panitiaPCx, barY, panitiaPCx, panitiaP.top);
+      arrow(svg, panitiaKCx, barY, panitiaKCx, panitiaK.top);
+
+      // 4d. Vertical divider: from the bar center down through the gap between boxes
+      seg(svg, dividerX, barY, dividerX, dividerBottom);
+
+      // 4. Pengurus → T-branch → two Panitia boxes (with arrows at ends)
+      // const panitiaPCx = panitiaP.left + panitiaP.width / 2;
+      // const panitiaKCx = panitiaK.left + panitiaK.width / 2;
+      // tBranch(
+      //   svg,
+      //   pengurusCx,
+      //   pengurus.bottom,
+      //   panitiaPCx,
+      //   panitiaKCx,
+      //   panitiaP.top,
+      // );
+
+      // 4b. Vertical divider line between the two Panitia boxes
+      // const dividerX = (panitiaP.right + panitiaK.left) / 2;
+      // const dividerTop = Math.min(panitiaP.top, panitiaK.top);
+      // const dividerBottom = Math.max(panitiaP.bottom, panitiaK.bottom);
+      // seg(svg, dividerX, dividerTop, dividerX, dividerBottom);
+
+      // 5. Panitia → Karyawan: single arrow from midpoint between the two panitia boxes
+      const karyawanCx = karyawan.left + karyawan.width / 2;
+      const panitiaMidX = (panitiaPCx + panitiaKCx) / 2;
+      const panitiaBottomY = Math.max(panitiaP.bottom, panitiaK.bottom);
+
+      seg(svg, panitiaMidX, panitiaBottomY, panitiaMidX, karyawan.top);
+      arrow(svg, panitiaMidX, panitiaBottomY, karyawanCx, karyawan.top);
+    }
+  }
+
+  // Run on load + on resize
+  const ro = new ResizeObserver(() => drawOrgChart());
+  const root = document.getElementById("oc-root");
+  if (root) {
+    ro.observe(root);
+    requestAnimationFrame(() => requestAnimationFrame(drawOrgChart));
+  }
+</script>

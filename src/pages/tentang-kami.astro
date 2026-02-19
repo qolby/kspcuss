@@ -1,12 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AboutHero from '../components/about/AboutHero.astro';
-import WhatIsCU from '../components/about/WhatIsCU.astro';
-import KoperasiProfile from '../components/about/KoperasiProfile.astro';
-import VisiMisi from '../components/about/VisiMisi.astro';
-import NilaiKami from '../components/about/NilaiKami.astro';
-import StrukturOrganisasi from '../components/about/StrukturOrganisasi.astro';
-import AboutClosingCTA from '../components/about/AboutClosingCTA.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutHero from "../components/about/AboutHero.astro";
+import WhatIsCU from "../components/about/WhatIsCU.astro";
+import KoperasiProfile from "../components/about/KoperasiProfile.astro";
+import VisiMisi from "../components/about/VisiMisi.astro";
+import NilaiKami from "../components/about/NilaiKami.astro";
+import StrukturOrganisasi from "../components/about/StrukturOrganisasi.astro";
+import AboutClosingCTA from "../components/about/AboutClosingCTA.astro";
+import StrukturOrganisasiMobile from "../components/about/StrukturOrganisasiMobile.astro";
 ---
 
 <BaseLayout title="Tentang Kami">
@@ -15,6 +16,15 @@ import AboutClosingCTA from '../components/about/AboutClosingCTA.astro';
   <KoperasiProfile />
   <VisiMisi />
   <NilaiKami />
-  <StrukturOrganisasi />
+  <!-- Mobile only -->
+  <div class="block sm:hidden">
+    <StrukturOrganisasiMobile />
+  </div>
+
+  <!-- Desktop only — your existing component, unchanged -->
+  <div class="hidden sm:block">
+    <!-- existing StrukturOrganisasi content -->
+    <StrukturOrganisasi />
+  </div>
   <AboutClosingCTA />
 </BaseLayout>

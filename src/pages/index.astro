@@ -1,18 +1,18 @@
 ---
 // At the top of your existing index.astro frontmatter, add:
-import { sanityClient } from '../lib/sanity';
-import { LATEST_POSTS_QUERY } from '../lib/queries';
+import { sanityClient } from "../lib/sanity";
+import { LATEST_POSTS_QUERY } from "../lib/queries";
 
 const testPosts = await sanityClient.fetch(LATEST_POSTS_QUERY);
-console.log('Sanity test:', JSON.stringify(testPosts, null, 2));
+// console.log('Sanity test:', JSON.stringify(testPosts, null, 2));
 
-import AboutPreview from '../components/home/AboutPreview.astro';
-import ClosingCTA from '../components/home/ClosingCTA.astro';
-import CreditUnionHighlight from '../components/home/CreditUnionHighlight.astro';
-import Hero from '../components/home/Hero.astro';
-import LatestNews from '../components/home/LatestNews.astro';
-import ServicesPreview from '../components/home/ServicesPreview.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutPreview from "../components/home/AboutPreview.astro";
+import ClosingCTA from "../components/home/ClosingCTA.astro";
+import CreditUnionHighlight from "../components/home/CreditUnionHighlight.astro";
+import Hero from "../components/home/Hero.astro";
+import LatestNews from "../components/home/LatestNews.astro";
+import ServicesPreview from "../components/home/ServicesPreview.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Beranda">

@@ -1,0 +1,202 @@
+---
+const pengurus = [
+    { name: "Jeni Manangnga, S.Pd.", role: "Ketua" },
+    { name: "Pery Loboran, S.IP.", role: "Wakil Ketua" },
+    { name: "Jupri Malino, S.Pd.", role: "Sekretaris" },
+    { name: "Hendrikus Beni Hardus, S.Fil.", role: "Bendahara" },
+    { name: "Paulus Eko Haryadi", role: "Anggota" },
+];
+
+const pengawas = [
+    { name: "Yulianus Bassi, S.Sos., S.Pd.", role: "Ketua" },
+    { name: "Kriswani Sau", role: "Sekretaris" },
+    { name: "Agustinus Sampe, S.Pi.", role: "Anggota" },
+];
+
+const karyawan = [
+    { name: "Jana Keristiani", role: "Kasir" },
+    { name: "Kevin Fernandianto Lubis, S.Kom.", role: "Kasir" },
+    { name: "Fidelsia Gaspatama", role: "Kasir" },
+    { name: "Rafael Lusi Lengari", role: "Penjaga Malam" },
+];
+
+const panitia_pendidikan = [
+    { name: "Pery Loboran, S.IP.", role: "Pendamping" },
+    { name: "Margareta Meman, S.Pd.", role: "Anggota" },
+    { name: "Sri Delvia", role: "Anggota" },
+];
+
+const panitia_kredit = [
+    { name: "Paulus Eko Haryadi", role: "Pendamping" },
+    { name: "Ganti Fredi", role: "Anggota" },
+    { name: "Meston Lubis", role: "Anggota" },
+];
+---
+
+<div class="container-content py-12 moc">
+    <div class="moc__card moc__card--ra">
+        <span class="moc__label">Rapat Anggota (R.A.)</span>
+    </div>
+
+    <div class="moc__card moc__card--warm">
+        <span class="moc__label">Penasehat</span>
+        <p class="moc__single-name">Simon Hanga Karang, S.H.</p>
+    </div>
+
+    <div class="moc__card moc__card--primary">
+        <span class="moc__label">Pengurus</span>
+        <ul class="moc__list">
+            {
+                pengurus.map((m) => (
+                    <li>
+                        <span class="moc__name">{m.name}</span>
+                        <span class="moc__role">{m.role}</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
+    <div class="moc__card moc__card--primary">
+        <span class="moc__label">Pengawas</span>
+        <ul class="moc__list">
+            {
+                pengawas.map((m) => (
+                    <li>
+                        <span class="moc__name">{m.name}</span>
+                        <span class="moc__role">{m.role}</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
+    <div class="moc__card moc__card--primary">
+        <span class="moc__label">Panitia Pendidikan</span>
+        <ul class="moc__list">
+            {
+                panitia_pendidikan.map((m) => (
+                    <li>
+                        <span class="moc__name">{m.name}</span>
+                        <span class="moc__role">{m.role}</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
+    <div class="moc__card moc__card--primary">
+        <span class="moc__label">Panitia Kredit</span>
+        <ul class="moc__list">
+            {
+                panitia_kredit.map((m) => (
+                    <li>
+                        <span class="moc__name">{m.name}</span>
+                        <span class="moc__role">{m.role}</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
+    <div class="moc__card moc__card--warm">
+        <span class="moc__label">Karyawan</span>
+        <ul class="moc__list">
+            {
+                karyawan.map((m) => (
+                    <li>
+                        <span class="moc__name">{m.name}</span>
+                        <span class="moc__role">{m.role}</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>
+
+<style>
+    .moc {
+        --c-primary: oklch(32% 0.07 210);
+        --c-primary-tint: oklch(96% 0.015 210);
+        --c-primary-border: oklch(62% 0.07 210);
+        --c-warm-tint: oklch(97% 0.03 85);
+        --c-warm-border: oklch(74% 0.09 85);
+        --c-text: oklch(20% 0.05 210);
+        --c-muted: oklch(46% 0.05 210);
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .moc__card {
+        border-radius: 8px;
+        border: 1.5px solid;
+        padding: 0.875rem 1rem;
+    }
+    .moc__card--ra {
+        background: var(--c-primary);
+        border-color: var(--c-primary);
+        text-align: center;
+    }
+    .moc__card--ra .moc__label {
+        color: oklch(97% 0.005 210);
+        margin-bottom: 0;
+    }
+    .moc__card--primary {
+        background: var(--c-primary-tint);
+        border-color: var(--c-primary-border);
+    }
+    .moc__card--warm {
+        background: var(--c-warm-tint);
+        border-color: var(--c-warm-border);
+    }
+
+    .moc__label {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--c-primary);
+        margin-bottom: 0.6rem;
+    }
+    .moc__single-name {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--c-text);
+        line-height: 1.4;
+    }
+
+    .moc__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    .moc__list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.75rem;
+        font-size: 0.8125rem;
+        color: var(--c-text);
+        line-height: 1.5;
+    }
+    .moc__name {
+        font-weight: 600;
+        flex: 1;
+        min-width: 0;
+    }
+    .moc__role {
+        font-weight: 400;
+        color: var(--c-muted);
+        font-size: 0.775rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+</style>
