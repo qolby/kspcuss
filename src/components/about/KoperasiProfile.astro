@@ -1,0 +1,118 @@
+<section class="bg-neutral-50 py-16 md:py-24">
+  <div class="container-content">
+
+    <!-- Section Header -->
+    <div class="max-w-2xl mb-14">
+      <h2 class="text-4xl font-semibold tracking-tight text-neutral-900">
+        Profil Koperasi
+      </h2>
+      <p class="mt-4 text-lg text-neutral-600">
+        KSP CU Sinar Sejahtera adalah koperasi simpan pinjam berbasis komunitas
+        yang tumbuh bersama anggotanya sejak 2014.
+      </p>
+    </div>
+
+    <!-- Stat Bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+      {[
+        { value: '2014', label: 'Tahun Berdiri' },
+        { value: '777+', label: 'Anggota Aktif' },
+        { value: 'Rp 10 M+', label: 'Total Aset' },
+        { value: '2015', label: 'Berbadan Hukum' },
+      ].map((stat) => (
+        <div class="rounded-2xl bg-white border border-neutral-200 p-6 text-center">
+          <div class="text-3xl font-bold text-neutral-900">{stat.value}</div>
+          <div class="mt-1 text-sm text-neutral-500">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Profile Table + Legal -->
+    <div class="grid md:grid-cols-2 gap-6 mb-14">
+      <div class="rounded-2xl bg-white border border-neutral-200 p-8">
+        <h3 class="text-lg font-semibold text-neutral-900 mb-6">Identitas Koperasi</h3>
+        <dl class="space-y-4 text-sm">
+          {[
+            { label: 'Nama Lengkap', value: 'Koperasi Simpan Pinjam Credit Union Sinar Sejahtera' },
+            { label: 'Singkatan', value: 'KSP CU Sinar Sejahtera' },
+            { label: 'Bentuk', value: 'Koperasi Simpan Pinjam (KSP)' },
+            { label: 'Wilayah Layanan', value: 'Kota Tarakan dan sekitarnya' },
+            { label: 'Dasar Operasional', value: 'Prinsip dan nilai Credit Union' },
+          ].map((item) => (
+            <div class="grid grid-cols-[160px,1fr] gap-x-4">
+              <dt class="font-medium text-neutral-500">{item.label}</dt>
+              <dd class="text-neutral-800">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="rounded-2xl bg-white border border-neutral-200 p-8">
+        <h3 class="text-lg font-semibold text-neutral-900 mb-6">Badan Hukum & Jaringan</h3>
+        <dl class="space-y-4 text-sm">
+          {[
+            { label: 'Status', value: 'Berbadan Hukum' },
+            { label: 'Nomor Badan Hukum', value: '130-SK.02/BH/XXXIV.2/2015' },
+            { label: 'Tanggal', value: '28 Februari 2015' },
+            { label: 'Jaringan', value: 'Puskopdit Bekatigade Sulawesi Selatan' },
+            { label: 'Bergabung Sejak', value: 'RAT 2018' },
+          ].map((item) => (
+            <div class="grid grid-cols-[160px,1fr] gap-x-4">
+              <dt class="font-medium text-neutral-500">{item.label}</dt>
+              <dd class="text-neutral-800">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- Sejarah Kami -->
+    <div class="rounded-2xl bg-white border border-neutral-200 p-8 md:p-12">
+      <h3 class="text-2xl font-semibold text-neutral-900 mb-8">Sejarah Kami</h3>
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-3 top-2 bottom-2 w-px bg-neutral-200 hidden sm:block"></div>
+
+        <div class="space-y-10">
+          {[
+            {
+              year: '2014',
+              title: 'Pendirian',
+              content:
+                'KSP CU Sinar Sejahtera dibentuk pada 17 Mei 2014 di kediaman Bpk. Yulianus Bassi, S.Sos, di Jalan Juata Harapan, Tarakan Barat. Rapat pendirian dihadiri 23 orang pendiri. Pendirian didukung penuh oleh Sr. Valensia, CU, kepala sekolah SDK ST. Fransiskus Xaverius Juata Permai saat itu.',
+            },
+            {
+              year: '2015',
+              title: 'Badan Hukum',
+              content:
+                'Sejak 28 Februari 2015, KSP CU Sinar Sejahtera resmi berbadan hukum dengan nomor 130-SK.02/BH/XXXIV.2/2015.',
+            },
+            {
+              year: '2018',
+              title: 'Bergabung dengan Jaringan Nasional',
+              content:
+                'Pada RAT tahun 2018, koperasi bergabung bersama 12 CU/KOPDIT di bawah naungan Puskopdit Bekatigade Sulawesi Selatan yang berkantor di Makassar.',
+            },
+            {
+              year: '2024',
+              title: 'Pertumbuhan Berkelanjutan',
+              content:
+                'Per Desember 2024, KSP CU Sinar Sejahtera telah memiliki 777 anggota dengan total aset lebih dari Rp 10 Miliar, dilayani oleh 3 kasir dan seorang petugas keamanan.',
+            },
+          ].map((item) => (
+            <div class="sm:pl-10 relative">
+              <!-- Dot -->
+              <div class="hidden sm:block absolute left-0 top-1.5 w-6 h-6 rounded-full bg-primary border-4 border-neutral-50 ring-1 ring-primary"></div>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xs font-semibold uppercase tracking-widest text-neutral-400">{item.year}</span>
+                <h4 class="text-base font-semibold text-neutral-900">{item.title}</h4>
+              </div>
+              <p class="text-neutral-600 leading-relaxed">{item.content}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

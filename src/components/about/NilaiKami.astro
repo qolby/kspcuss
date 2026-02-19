@@ -1,0 +1,80 @@
+---
+const values = [
+  {
+    letter: 'S',
+    name: 'Sejahtera',
+    description:
+      'Setiap keputusan diarahkan untuk meningkatkan kesejahteraan anggota — dari akses pinjaman yang adil hingga balas jasa simpanan yang nyata.',
+  },
+  {
+    letter: 'M',
+    name: 'Mandiri',
+    description:
+      'Anggota didorong untuk mandiri secara finansial melalui disiplin menabung, perencanaan yang sehat, dan pendidikan yang berkelanjutan.',
+  },
+  {
+    letter: 'A',
+    name: 'Amanah',
+    description:
+      'Dana yang dipercayakan anggota dikelola dengan penuh tanggung jawab, kehati-hatian, dan dapat dipertanggungjawabkan secara transparan.',
+  },
+  {
+    letter: 'R',
+    name: 'Responsif',
+    description:
+      'Koperasi hadir untuk merespons kebutuhan anggota dengan cepat — baik dalam pelayanan harian maupun dalam menghadapi perubahan.',
+  },
+  {
+    letter: 'T',
+    name: 'Terpercaya',
+    description:
+      'Kepercayaan dibangun melalui konsistensi, keterbukaan laporan, dan tata kelola yang demokratis bersama seluruh anggota.',
+  },
+];
+---
+
+<section class="bg-neutral-50 py-16 md:py-24">
+  <div class="container-content">
+    <div class="max-w-3xl mb-12 md:mb-16">
+      <p
+        class="text-sm font-semibold tracking-widest uppercase text-primary mb-4"
+      >
+        Nilai-Nilai Kami
+      </p>
+      <h2 class="text-4xl font-semibold tracking-tight text-neutral-900">
+        SMART — Lima nilai yang mendasari setiap langkah kami.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        values.map((value) => (
+          <div class="bg-white border border-neutral-100 rounded-2xl p-7 shadow-sm flex flex-col gap-4">
+            <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <span class="text-xl font-bold text-primary">{value.letter}</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-900 mb-2">
+                {value.name}
+              </h3>
+              <p class="text-neutral-600 text-base leading-relaxed">
+                {value.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+      <!-- Sixth card: tagline/accent -->
+      <div class="bg-primary rounded-2xl p-7 flex flex-col justify-end">
+        <p
+          class="text-primary-foreground/70 text-sm font-medium uppercase tracking-widest mb-3"
+        >
+          Tiga Pilar CU
+        </p>
+        <p class="text-primary-foreground text-xl font-semibold leading-snug">
+          Pendidikan · Swadaya · Solidaritas
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

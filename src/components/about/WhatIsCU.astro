@@ -1,0 +1,92 @@
+---
+const cuPrinciples = [
+  {
+    title: 'Keanggotaan Sukarela dan Terbuka',
+    description:
+      'Credit Union terbuka bagi siapa pun yang bersedia bertanggung jawab dan berpartisipasi sebagai anggota.',
+  },
+  {
+    title: 'Pendidikan dan Kedisiplinan',
+    description:
+      'Anggota didorong untuk memahami dan mengelola keuangan secara bijak melalui pendidikan yang berkelanjutan.',
+  },
+  {
+    title: 'Solidaritas dan Tanggung Jawab Bersama',
+    description:
+      'Dana yang dikelola berasal dari anggota dan digunakan untuk mendukung kebutuhan sesama anggota.',
+  },
+];
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="container-content">
+    <h2
+      class="text-4xl text-center font-semibold tracking-tight text-neutral-900"
+    >
+      Apa itu Credit Union?
+    </h2>
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mt-12">
+      <!-- Text -->
+      <div>
+        <div class="space-y-6 text-lg text-neutral-600 leading-relaxed">
+          <p>
+            Credit Union adalah gerakan keuangan berbasis komunitas yang
+            dimiliki dan dijalankan oleh para anggotanya sendiri.
+          </p>
+          <p>
+            Berbeda dengan lembaga keuangan pada umumnya, Credit Union tidak
+            berorientasi pada keuntungan semata, melainkan pada kesejahteraan
+            anggota dalam jangka panjang.
+          </p>
+          <p>
+            Dalam Credit Union, setiap anggota memiliki peran ganda: sebagai
+            pemilik dan sebagai pengguna layanan.
+          </p>
+          <p>
+            Artinya, setiap keputusan dan pengelolaan dana dilakukan untuk
+            kepentingan bersama, bukan segelintir pihak.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative lg:top">
+        <img
+          src="/images/illustration-1.webp"
+          alt="Ilustrasi abstrak tentang konsep Credit Union dan koperasi"
+          class="w-full rounded-3xl shadow-sm"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Prinsip CU Cards -->
+    <div class="mt-16">
+      <h3 class="text-2xl font-semibold text-neutral-900 mb-8">
+        Prinsip Dasar Credit Union
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          cuPrinciples.map((principle, index) => (
+            <div class="flex flex-col gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+              <span class="text-3xl font-bold text-neutral-200 leading-none">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <strong class="text-lg font-semibold text-neutral-900">
+                {principle.title}
+              </strong>
+              <p class="text-neutral-600 text-sm leading-relaxed">
+                {principle.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-10 text-lg text-center text-neutral-600 italic">
+        Prinsip-prinsip inilah yang menjadi dasar berdirinya dan berjalannya KSP
+        CU Sinar Sejahtera.
+      </p>
+    </div>
+  </div>
+</section>

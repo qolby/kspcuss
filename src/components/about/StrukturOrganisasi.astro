@@ -1,0 +1,120 @@
+---
+const structure = {
+  penasihat: [{ name: 'Simon Hanga Karang, S.H.', role: 'Penasihat' }],
+  pengurus: [
+    { name: 'Jeni Manangnga, S.Pd.', role: 'Ketua' },
+    { name: 'Pery Loboran, S.IP.', role: 'Wakil Ketua' },
+    { name: 'Jupri Malino, S.Pd.', role: 'Sekretaris' },
+    { name: 'Hendrikus Beni Hardus, S.Fil.', role: 'Bendahara' },
+    { name: 'Paulus Eko Haryadi', role: 'Anggota' },
+  ],
+  pengawas: [
+    { name: 'Yulianus Bassi, S.Sos., S.Pd.', role: 'Ketua Pengawas' },
+    { name: 'Kriswani Sau', role: 'Sekretaris' },
+    { name: 'Agustinus Sampe, S.Pi.', role: 'Anggota' },
+  ],
+  karyawan: [
+    { name: 'Jana Keristiani', role: 'Kasir' },
+    { name: 'Kevin Fernandianto Lubis, S.Kom.', role: 'Kasir' },
+    { name: 'Fidelsia Gaspatama', role: 'Kasir' },
+  ],
+};
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="container-content">
+    <div class="max-w-2xl mb-12 md:mb-16">
+      <p
+        class="text-sm font-semibold tracking-widest uppercase text-primary mb-4"
+      >
+        Struktur Organisasi
+      </p>
+      <h2 class="text-4xl font-semibold tracking-tight text-neutral-900">
+        Kepengurusan periode 2022–2025.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+      <!-- Penasihat -->
+      <div>
+        <h3
+          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
+        >
+          Penasihat
+        </h3>
+        <ul class="space-y-3">
+          {
+            structure.penasihat.map((p) => (
+              <li>
+                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
+                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Pengurus -->
+      <div>
+        <h3
+          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
+        >
+          Pengurus
+        </h3>
+        <ul class="space-y-3">
+          {
+            structure.pengurus.map((p) => (
+              <li>
+                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
+                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Pengawas -->
+      <div>
+        <h3
+          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
+        >
+          Pengawas
+        </h3>
+        <ul class="space-y-3">
+          {
+            structure.pengawas.map((p) => (
+              <li>
+                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
+                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Karyawan -->
+      <div>
+        <h3
+          class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-5"
+        >
+          Karyawan
+        </h3>
+        <ul class="space-y-3">
+          {
+            structure.karyawan.map((p) => (
+              <li>
+                <p class="font-medium text-neutral-900 text-sm">{p.name}</p>
+                <p class="text-xs text-neutral-500 mt-0.5">{p.role}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-12 text-sm text-neutral-400">
+      Data kepengurusan dapat berubah sesuai hasil Rapat Anggota Tahunan (RAT)
+      berikutnya.
+    </p>
+  </div>
+</section>

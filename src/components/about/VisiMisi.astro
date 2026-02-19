@@ -1,0 +1,61 @@
+---
+const visionMission = {
+  vision: 'Menjadi koperasi yang Sehat, Unggul, Mandiri, dan Terpercaya.',
+  missions: [
+    'Menerapkan manajemen keuangan secara profesional',
+    'Membangun SDM yang profesional melalui pendidikan dan pelatihan berkelanjutan',
+    'Meningkatkan pelayanan digital masa kini',
+    'Menyediakan produk simpan pinjam yang inovatif dan sesuai dengan kebutuhan anggota',
+    'Pengelolaan koperasi yang transparan dan akuntabel',
+    'Menjalin kerja sama dengan pihak-pihak luar untuk mendukung kemajuan KSP CU Sinar Sejahtera',
+  ],
+};
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="container-content">
+    <!-- Section label -->
+    <p
+      class="text-sm font-semibold tracking-widest uppercase text-primary mb-4"
+    >
+      Visi & Misi
+    </p>
+
+    <!-- Visi callout -->
+    <div
+      class="border-l-4 border-primary pl-6 md:pl-8 mb-16 md:mb-20 max-w-3xl"
+    >
+      <p
+        class="text-sm font-medium text-neutral-400 uppercase tracking-widest mb-3"
+      >
+        Visi
+      </p>
+      <p
+        class="text-3xl md:text-4xl font-semibold text-neutral-900 leading-snug"
+      >
+        {visionMission.vision}
+      </p>
+    </div>
+
+    <!-- Misi -->
+    <div>
+      <p
+        class="text-sm font-medium text-neutral-400 uppercase tracking-widest mb-8"
+      >
+        Misi
+      </p>
+      <ol class="grid md:grid-cols-2 gap-x-16 gap-y-6">
+        {
+          visionMission.missions.map((mission, index) => (
+            <li class="flex items-start gap-5">
+              <span class="shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-semibold flex items-center justify-center mt-0.5">
+                {index + 1}
+              </span>
+              <p class="text-lg text-neutral-700 leading-snug">{mission}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>
