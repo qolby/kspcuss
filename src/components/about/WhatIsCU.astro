@@ -1,92 +1,99 @@
 ---
-const cuPrinciples = [
+const pillars = [
   {
-    title: 'Keanggotaan Sukarela dan Terbuka',
+    number: '01',
+    title: 'Pendidikan',
+    motto:
+      'Dimulai dengan pendidikan, berkembang dengan pendidikan, dikontrol melalui pendidikan, dan bergantung pada pendidikan.',
     description:
-      'Credit Union terbuka bagi siapa pun yang bersedia bertanggung jawab dan berpartisipasi sebagai anggota.',
+      'Setiap anggota KSP CU Sinar Sejahtera wajib mengikuti pendidikan dasar sebelum dapat mengajukan pinjaman. Pendidikan bukan syarat administratif, melainkan inti dari gerakan CU.',
   },
   {
-    title: 'Pendidikan dan Kedisiplinan',
+    number: '02',
+    title: 'Swadaya',
+    motto: 'Dari anggota, oleh anggota, dan untuk anggota.',
     description:
-      'Anggota didorong untuk memahami dan mengelola keuangan secara bijak melalui pendidikan yang berkelanjutan.',
+      'Seluruh modal berasal dari simpanan anggota sendiri. Tidak ada investor luar, tidak ada kepentingan pihak ketiga. Kekuatan koperasi tumbuh dari dalam komunitas itu sendiri.',
   },
   {
-    title: 'Solidaritas dan Tanggung Jawab Bersama',
+    number: '03',
+    title: 'Solidaritas',
+    motto: 'Anda susah saya bantu, saya susah kau bantu.',
     description:
-      'Dana yang dikelola berasal dari anggota dan digunakan untuk mendukung kebutuhan sesama anggota.',
+      'Anggota saling menopang satu sama lain. Dari santunan duka hingga dana perlindungan pinjaman, sistem ini dirancang agar tidak ada anggota yang menghadapi kesulitan sendirian.',
+  },
+  {
+    number: '04',
+    title: 'Inovasi',
+    motto: 'Tumbuh bersama perubahan zaman.',
+    description:
+      'KSP CU Sinar Sejahtera terus beradaptasi, dari penggunaan aplikasi SICUNDO sejak 2020 hingga pengembangan produk simpan pinjam yang sesuai kebutuhan anggota masa kini.',
   },
 ];
 ---
 
 <section class="bg-white py-16 md:py-24">
   <div class="container-content">
-    <h2
-      class="text-4xl text-center font-semibold tracking-tight text-neutral-900"
-    >
-      Apa itu Credit Union?
-    </h2>
-
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mt-12">
-      <!-- Text -->
+    <!-- Header + intro -->
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-end mb-16 md:mb-20">
       <div>
-        <div class="space-y-6 text-lg text-neutral-600 leading-relaxed">
-          <p>
-            Credit Union adalah gerakan keuangan berbasis komunitas yang
-            dimiliki dan dijalankan oleh para anggotanya sendiri.
-          </p>
-          <p>
-            Berbeda dengan lembaga keuangan pada umumnya, Credit Union tidak
-            berorientasi pada keuntungan semata, melainkan pada kesejahteraan
-            anggota dalam jangka panjang.
-          </p>
-          <p>
-            Dalam Credit Union, setiap anggota memiliki peran ganda: sebagai
-            pemilik dan sebagai pengguna layanan.
-          </p>
-          <p>
-            Artinya, setiap keputusan dan pengelolaan dana dilakukan untuk
-            kepentingan bersama, bukan segelintir pihak.
-          </p>
-        </div>
+        <p
+          class="text-sm font-semibold tracking-widest uppercase text-primary mb-4"
+        >
+          Mengenal Credit Union
+        </p>
+        <h2
+          class="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]"
+        >
+          Apa itu Credit Union?
+        </h2>
       </div>
-
-      <!-- Image -->
-      <div class="relative lg:top">
-        <img
-          src="/images/illustration-1.webp"
-          alt="Ilustrasi abstrak tentang konsep Credit Union dan koperasi"
-          class="w-full rounded-3xl shadow-sm"
-          loading="lazy"
-        />
+      <div class="space-y-5 text-lg text-neutral-600 leading-relaxed">
+        <p>
+          Credit Union adalah gerakan keuangan berbasis komunitas yang dimiliki
+          dan dijalankan oleh para anggotanya sendiri. Berbeda dengan lembaga
+          keuangan pada umumnya, Credit Union tidak berorientasi pada keuntungan
+          semata, melainkan pada kesejahteraan anggota dalam jangka panjang.
+        </p>
+        <p>
+          Dalam Credit Union, setiap anggota memiliki peran ganda: sebagai
+          pemilik sekaligus pengguna layanan. Setiap keputusan dan pengelolaan
+          dana dilakukan untuk kepentingan bersama, bukan segelintir pihak.
+        </p>
       </div>
     </div>
 
-    <!-- Prinsip CU Cards -->
-    <div class="mt-16">
-      <h3 class="text-2xl font-semibold text-neutral-900 mb-8">
-        Prinsip Dasar Credit Union
+    <!-- Four Pillars -->
+    <div>
+      <h3
+        class="text-sm font-semibold tracking-widest uppercase text-neutral-400 mb-8"
+      >
+        Empat Pilar Credit Union
       </h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div
+        class="grid md:grid-cols-2 gap-px bg-neutral-100 border border-neutral-100 rounded-2xl overflow-hidden"
+      >
         {
-          cuPrinciples.map((principle, index) => (
-            <div class="flex flex-col gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
-              <span class="text-3xl font-bold text-neutral-200 leading-none">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <strong class="text-lg font-semibold text-neutral-900">
-                {principle.title}
-              </strong>
-              <p class="text-neutral-600 text-sm leading-relaxed">
-                {principle.description}
+          pillars.map((pillar) => (
+            <div class="bg-white p-8 flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-bold text-neutral-300">
+                  {pillar.number}
+                </span>
+                <h4 class="text-xl font-semibold text-neutral-900">
+                  {pillar.title}
+                </h4>
+              </div>
+              <p class="text-sm text-primary font-medium italic leading-relaxed">
+                "{pillar.motto}"
+              </p>
+              <p class="text-neutral-600 text-base leading-relaxed">
+                {pillar.description}
               </p>
             </div>
           ))
         }
       </div>
-      <p class="mt-10 text-lg text-center text-neutral-600 italic">
-        Prinsip-prinsip inilah yang menjadi dasar berdirinya dan berjalannya KSP
-        CU Sinar Sejahtera.
-      </p>
     </div>
   </div>
 </section>
