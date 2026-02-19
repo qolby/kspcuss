@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title="404 — Halaman Tidak Ditemukan"
+    description="Halaman yang Anda cari tidak dapat ditemukan."
+>
+    <section class="bg-white flex-1 flex items-center py-24 md:py-32">
+        <div class="container-content w-full">
+            <div class="max-w-xl mx-auto text-center">
+                <!-- Large decorative 404 -->
+                <p
+                    class="text-[clamp(6rem,20vw,10rem)] font-bold leading-none tracking-tight text-primary/10 select-none"
+                    aria-hidden="true"
+                >
+                    404
+                </p>
+
+                <!-- Icon -->
+                <div class="flex justify-center -mt-4 mb-8">
+                    <span
+                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/8"
+                    >
+                        <!-- Compass / map icon to convey "lost" -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-8 h-8 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path
+                                d="M16.24 7.76 14.12 14.12 7.76 16.24l2.12-6.36 6.36-2.12z"
+                            ></path>
+                        </svg>
+                    </span>
+                </div>
+
+                <!-- Heading -->
+                <h1
+                    class="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900 mb-4"
+                >
+                    Halaman tidak ditemukan
+                </h1>
+
+                <!-- Body -->
+                <p class="text-lg text-neutral-500 leading-relaxed mb-10">
+                    Maaf, halaman yang Anda cari tidak ada atau mungkin telah
+                    dipindahkan. Coba kembali ke beranda atau jelajahi halaman
+                    lain.
+                </p>
+
+                <!-- Actions -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a
+                        href="/"
+                        class="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-3xl font-medium text-base transition-all active:scale-95"
+                    >
+                        Kembali ke Beranda
+                    </a>
+                    <a
+                        href="/kontak"
+                        class="inline-block bg-transparent border border-neutral-200 hover:border-neutral-400 text-neutral-700 px-8 py-4 rounded-3xl font-medium text-base transition-all active:scale-95"
+                    >
+                        Hubungi Kami
+                    </a>
+                </div>
+
+                <!-- Quick links -->
+                <div class="mt-12 pt-8 border-t border-neutral-100">
+                    <p class="text-sm text-neutral-400 mb-4">
+                        Atau kunjungi halaman berikut:
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                        <a
+                            href="/tentang-kami"
+                            class="footer-link hover:text-primary"
+                            >Tentang Kami</a
+                        >
+                        <a
+                            href="/layanan"
+                            class="footer-link hover:text-primary">Layanan</a
+                        >
+                        <a
+                            href="/keanggotaan"
+                            class="footer-link hover:text-primary"
+                            >Keanggotaan</a
+                        >
+                        <a href="/berita" class="footer-link hover:text-primary"
+                            >Berita</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
